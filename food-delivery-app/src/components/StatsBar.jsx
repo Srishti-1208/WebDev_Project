@@ -31,21 +31,21 @@ export default function StatsBar({ resources }) {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
       {stats.map((stat, index) => (
         <div
           key={index}
-          className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl border-2 border-amber-200/50 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          className="bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-lg border border-amber-200/50 hover:shadow-xl hover:scale-102 transition-all duration-300"
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-amber-900 mb-1">{stat.label}</p>
-              <p className="text-3xl font-bold bg-gradient-to-r from-amber-800 to-orange-800 bg-clip-text text-transparent">
+              <p className="text-xs font-medium text-amber-900 mb-0.5">{stat.label}</p>
+              <p className="text-2xl font-bold bg-gradient-to-r from-amber-800 to-orange-800 bg-clip-text text-transparent">
                 {stat.value}
               </p>
             </div>
-            <div className={`w-14 h-14 bg-gradient-to-br ${stat.bgColor} rounded-xl flex items-center justify-center shadow-lg`}>
-              <stat.icon size={28} className="text-white" />
+            <div className={`w-11 h-11 bg-gradient-to-br ${stat.bgColor} rounded-lg flex items-center justify-center shadow-md`}>
+              <stat.icon size={22} className="text-white" />
             </div>
           </div>
         </div>
