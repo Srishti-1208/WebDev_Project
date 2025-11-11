@@ -315,14 +315,26 @@ export default function App() {
         </div>
       </div>
 
-      {/* Upload Modal */}
+      {/* Upload Modal with Fixed Overlay */}
       {showUploadModal && (
-        <UploadModal 
-          onClose={() => setShowUploadModal(false)}
-          onUpload={handleUpload}
-          categories={categories}
-          subjects={subjects}
-        />
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto"
+          onClick={(e) => {
+            // Close modal when clicking on backdrop
+            if (e.target === e.currentTarget) {
+              setShowUploadModal(false);
+            }
+          }}
+        >
+          <div className="w-full max-w-2xl my-8">
+            <UploadModal 
+              onClose={() => setShowUploadModal(false)}
+              onUpload={handleUpload}
+              categories={categories}
+              subjects={subjects}
+            />
+          </div>
+        </div>
       )}
 
       <style>{`
